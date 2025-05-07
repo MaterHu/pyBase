@@ -257,7 +257,94 @@ people = {'amy':18, 'kitty':25, 'bob':30, 'recheal':17}
 # b = collections.Counter(a)
 # print(b)
 
-# success
+# 圆的面积
+# def area_of_circle(x):
+#     return round(3.14 * x ** 2,2)
+#
+# x = float(input("enter 半径 of circle: "))
+# print(area_of_circle(x))
+# Π可以用第三方库math.pi导入，这样精度更高
+
+# 打印指定范围的素数, 函数套用
+# def is_sushu(num):
+#     """
+#     作用：判断是否为素数
+#     参数：要判断的值
+#     返回值：有，true or false
+#     """
+#     if num <= 1:
+#         return False
+#     for i in range(2, num):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# def sushu(x,y):
+#     """"
+#     作用：打印范围内素数
+#     参数：范围起始值，范围结束值
+#     返回值：无
+#     """
+#     for i in range(x,y):
+#         if is_sushu(i)==True:  #因为这个地方需要重复判断，因此用函数更加简便
+#             print(i)
+#
+# a=sushu(1,10)
+
+# 计算整数平方和
+# def int_square(num):
+#     """
+#     作用：所有整数平方和
+#     参数：最后一个整数
+#     返回值：结果
+#     """
+#     sum = 0
+#     for i in range(1, num + 1):
+#         sum = sum + i ** 2
+#         print(sum)
+#     return sum
+#
+# print(int_square(5))
+
+# 列表中所有数字的总和
+# def list_sum(number_list):
+#     """
+#     作用：给定列表中所有数字的总和
+#     参数：数字列表
+#     返回值：总和
+#     """
+#     current_sum = 0
+#     for i in number_list:
+#         current_sum += i
+#     return current_sum
+#
+# print(list_sum([1,2,3,4,5,8,10]))
+#更简便方法
+# list1=[1,2,3,4,5,8,10]
+# print(sum(list1))
+
+# 保存范围内的偶数到列表里
+# def oushu(star, end):
+#     """
+#     作用：将偶数加到列表里
+#     :param star:
+#     :param end:
+#     :return:
+#     """
+#     oushu_list= []
+#     for i in range(star, end+1):
+#         if i % 2 == 0:
+#             oushu_list.append(i)
+#     return oushu_list
+#
+# print(oushu(100, 200))
+# 优雅写法
+# def os(start, end):
+#     return [i for i in range(start,end) if i % 2 == 0]
+# print(os(100, 120))
+
+
+
 
 
 
