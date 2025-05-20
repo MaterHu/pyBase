@@ -1,0 +1,8 @@
+姓名,年龄,性别
+amy,15,female
+tom,28,male
+bob,25,male
+chen,19,male
+lisa,30,female
+liu,32,female
+hu,25,female
