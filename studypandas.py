@@ -82,10 +82,10 @@ import pandas as pd
 # 使用 .dtypes 查看 DataFrame 每列的数据类型。
 # print(df.dtypes)
 # 选择数据：
-arr = np.random.randint(0,100,size=(3,4))
-index = pd.Index(data=['amy','tom','bob'],name='姓名')
-columns = ['语文','数学','英语','历史']
-df = pd.DataFrame(data=arr,index=index,columns=columns)
+# arr = np.random.randint(0,100,size=(3,4))
+# index = pd.Index(data=['amy','tom','bob'],name='姓名')
+# columns = ['语文','数学','英语','历史']
+# df = pd.DataFrame(data=arr,index=index,columns=columns)
 # 选择 DataFrame 中的单列（使用列名）。
 # print(df['语文'])
 # print(df.loc[:,'语文'])
@@ -126,51 +126,157 @@ df = pd.DataFrame(data=arr,index=index,columns=columns)
 # 第二阶段：数据清洗和处理 (熟悉处理缺失值、重复值、数据类型转换等)
 # 处理缺失值：
 # 加载一个包含缺失值的 CSV 文件（你可以手动在 CSV 文件中添加一些空值）。
+# df = pd.read_csv('kongzhilianxi.csv',sep=',',header=0,index_col=0)
+# print(df)
 # 使用 .isnull() 和 .notnull() 检测缺失值。
+# print(df.loc[df.isnull().any(axis=1)]) #精准地找出了有缺失值的行，而并不是单纯返回一个bool series或bool dataframe
+# print(df.loc[df.notnull().all(axis=1)]) #精准地找出了不含缺失值的行，而并不是...
 # 使用 .dropna() 删除包含缺失值的行或列。
+# df_new = df.dropna(axis=0,how='any') #删除的是行
+# print(df_new)
 # 使用 .fillna() 填充缺失值（例如，用 0、均值、中位数等填充）。
+# print(df.fillna(value=0))
+# print(df.fillna(df.mean())) #这是以列的均值填充
+# df_t = df.T
+# print(df_t.fillna(value=0))
+# print(df_t.fillna(df_t.mean())) #这是以行的均值填充，先转置就行
 # 处理重复值：
 # 创建一个包含重复行的 DataFrame。
+# df1 = pd.DataFrame({'a':[3,2,3], 'b':[4,5,6],'c':[3,4,5],'d':[4,7,8],'e':[4,5,6]})
+# df2 = df1.T
 # 使用 .duplicated() 检测重复行。
+# print(df2.duplicated())
 # 使用 .drop_duplicates() 删除重复行，并尝试保留第一个或最后一个重复项。
+# print(df2.drop_duplicates(keep='first'))
 # 数据类型转换：
 # 查看 DataFrame 各列的数据类型。
+# df = pd.read_csv('lianxi.txt',sep=',',header=0)
+# print(df)
 # 使用 .astype() 转换列的数据类型（例如，将字符串转换为数字，将浮点数转换为整数）。
+# print(df.loc[:,'年龄'].astype(float))
 # 尝试将包含无法转换的值的列转换为数字类型，观察会发生什么。
+# print(df.loc[:,'姓名'].astype(int)) #转不了呗
 # 字符串操作：
 # 创建一个包含字符串的 Series。
+# s1 = pd.Series(['amy','bob','lisa'],index=['a','b','c'])
+# print(s1)
 # 使用 .str 属性访问字符串方法，例如：
 # .lower()、.upper()
-# .len()
+# print(s1.str.upper())
+# .len
+# print(s1.str.len())
 # .strip()
+# print(s1.str.strip()) #删空白用的
 # .split()
+# print(s1.str.split())
 # .contains()
+# print(s1.str.contains('bob')) #返回一个bool series
 # .replace()
+# print(s1.str.replace('bob','bo'))
 # 日期时间操作：
 # 创建一个包含日期时间字符串的 Series。
+# s1 = pd.Series(['2025年4月21日','2025-04-28','2025年5月2日'],index=['a','b','c'])
+# print(s1)
 # 使用 pd.to_datetime() 将字符串转换为 datetime 对象。
-# 从 datetime Series 中提取年份、月份、日期、小时等。
+# datetime_series = pd.to_datetime(s1,errors='coerce')
+# print(datetime_series)
+# 再来个复杂的
+# date_strings = pd.Series([
+#     '2023-01-15',                  # YYYY-MM-DD
+#     '2024/03/22 10:30:00',         # YYYY/MM/DD HH:MM:SS
+#     'January 1st, 2023',           # Month Day, Year
+#     '15-Feb-2022',                 # DD-Mon-YYYY
+#     '2021-07-01 14:05',            # YYYY-MM-DD HH:MM
+#     '20200825',                    # YYYYMMDD
+#     '2025-06-05T12:00:00Z',        # ISO 8601 format
+#     'Invalid Date',                # 一个无法转换的字符串
+#     '2023-13-01'                   # 无效的月份
+# ])
+# datetime_series = pd.to_datetime(date_strings, errors='coerce')
+# print(datetime_series)
+# 从 datetime Series 中提取年份、月份、日期、小时等。  .dt是个访问器
+# s2 = pd.Series(['2025-04-21','2025-04-28','2025-05-02'],index=['a','b','c'])
+# s2_datetime = pd.to_datetime(s2)
+# print("\n提取年份:")
+# print(s2_datetime.dt.year)
+# print(s2_datetime.dt.month)
+# print(s2_datetime.dt.day)
 # 进行日期时间的比较和计算。
 
 # 第三阶段：数据操作和分析 (熟悉分组、聚合、合并、排序等)
 # 分组 (GroupBy)：
 # 加载一个包含分类数据的 CSV 文件（例如，包含不同部门员工信息的表格）。
+# df = pd.read_csv('lianxi.txt',sep=',',header=0)
 # 使用 .groupby() 方法按一列或多列进行分组。
+# print(df.groupby(by=['性别']))
 # 对分组后的数据应用聚合函数（例如，.sum()、.mean()、.count()、.min()、.max()）。
+# print(df.groupby(by=['性别']).count())
 # 对不同的列应用不同的聚合函数（使用 .agg()）。
+# print(df.groupby(by=['性别']).agg({'姓名':np.count_nonzero,'年龄':np.mean}))
 # 聚合 (Aggregation)：
 # 学习使用 .agg() 对整个 DataFrame 或分组后的 DataFrame 进行多种聚合操作。
+
 # 合并 (Merge)：
 # 创建两个具有共同列的 DataFrame。
+# df1 = pd.DataFrame(data=np.random.randint(40,100,(3,4)),index=['a','b','c'],columns=['语文','数学','英语','历史'])
+# df2 = pd.DataFrame(data=np.random.randint(40,100,(3,4)),index=['d','e','c'],columns=['语文','数学','英语','历史'])
 # 使用 pd.merge() 将这两个 DataFrame 按照共同列进行合并（尝试不同的 how 参数：'inner', 'outer', 'left', 'right'）。
+# print(pd.concat([df1,df2],axis=0,join='inner'))
+# print(pd.merge(left=df1,right=df2,how='outer'))
 # 连接 (Concatenate)：
 # 创建两个具有相同列或不同列的 DataFrame。
 # 使用 pd.concat() 将这两个 DataFrame 沿着行或列方向进行连接。
 # 排序 (Sorting)：
 # 使用 .sort_values() 按单列或多列对 DataFrame 进行排序（升序和降序）。
+# print(df1.sort_values(by='语文'))
 # 使用 .sort_index() 按索引对 DataFrame 进行排序。
+# print(df2.sort_index(axis=0))
 # 数据透视表 (Pivot Table)：
 # 使用 pd.pivot_table() 创建数据透视表，对数据进行重塑和聚合。
+# 创建dataframe
+# data = {
+#     'Region': ['East', 'West', 'East', 'West', 'North', 'South', 'East', 'North'],
+#     'Salesperson': ['Alice', 'Bob', 'Alice', 'Charlie', 'David', 'Eve', 'Bob', 'David'],
+#     'Product': ['Laptop', 'Mouse', 'Keyboard', 'Laptop', 'Mouse', 'Keyboard', 'Laptop', 'Monitor'],
+#     'Quantity': [2, 5, 3, 1, 4, 2, 3, 1],
+#     'Price': [1200, 25, 75, 1300, 30, 80, 1250, 150],
+#     'Date': pd.to_datetime(['2023-01-10', '2023-01-12', '2023-01-15', '2023-01-18',
+#                            '2023-02-01', '2023-02-05', '2023-02-10', '2023-02-12'])
+# }
+# df = pd.DataFrame(data)
+# df['Revenue'] = df['Quantity'] * df['Price']
+#
+# print("原始 DataFrame:")
+# print(df)
+# print("-" * 50)
+# 按区域计算销售额,默认的聚合函数是均值
+# pivot1 = pd.pivot_table(df, index='Region', values='Revenue')
+# print("\n1. 按区域计算平均销售额:")
+# print(pivot1)
+# print("-" * 50)
+# 按区域计算总销售额
+# pivot2 = pd.pivot_table(df,index='Region',values='Revenue',aggfunc='sum')
+# print(pivot2)
+# 按区域和产品计算总销售额
+# pivot3 = pd.pivot_table(df,index='Region',columns='Product',values='Revenue',aggfunc='sum')
+# print(pivot3)
+# 多级索引和多级列：按区域、销售员和产品计算数量
+# pivot4 = pd.pivot_table(df,index=['Region','Salesperson'],columns='Product',values='Quantity',aggfunc='sum')
+# print(pivot4)
+# pivot5 = pd.pivot_table(df,
+#                         index='Region',
+#                         aggfunc={
+#                             'Quantity': 'sum',      # 对 Quantity 列求和
+#                             'Revenue': 'mean',      # 对 Revenue 列求平均
+#                             'Product': 'count'      # 对 Product 列计数（非空数量）
+#                         })
+# print(pivot5)
+# 包含小计，margins=True
+# pivot7 = pd.pivot_table(df, index='Region', columns='Product', values='Revenue', aggfunc='sum', fill_value=0, margins=True)
+# print("\n7. 按区域和产品计算总销售额 (包含总计):")
+# print(pivot7)
+# print("-" * 50)
+
 
 # 第四阶段：实践项目 (将所学知识应用于实际问题)
 # 分析小型数据集：
