@@ -1,0 +1,74 @@
+.review-container {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.review-title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #5F8FBF; /* 低饱和蓝色，和按钮呼应 */
+  margin-bottom: 20rpx;
+}
+
+.review-count {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 40rpx;
+}
+
+.card {
+  background: #f5f5f5;
+  padding: 40rpx;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.original {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.kana {
+  font-size: 32rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.meaning {
+  font-size: 32rpx;
+  color: #DDD75C;
+  margin-bottom: 20rpx;
+}
+
+.note {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.btn-group {
+  display: flex;
+  gap: 30rpx;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+
+.btn {
+  padding: 30rpx 60rpx;
+  border-radius: 10rpx;
+  color: white;
+}
+
+.know {
+  background: #88B66A; /* 柔和绿色 */
+}
+
+.unknown {
+  background: #DDD75C; /* 柔和红色 */
+}
+
+.empty {
+  padding: 100rpx;
+  color: #999;
+}

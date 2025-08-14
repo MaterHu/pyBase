@@ -1,0 +1,42 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "enableAppletPerformanceMonitor": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "showES6CompileOption": false,
+    "enableDebugger": true,
+    "disableRecordApis": false,
+    "disableVirtualDevices": false,
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.30.0",
+  "appid": "wx1950fae4f8dac9b2",
+  "projectname": "huhu学日语",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "cloudfunctionTemplateRoot": "cloudfunctions/",
+  "cloud": true
+}
+    

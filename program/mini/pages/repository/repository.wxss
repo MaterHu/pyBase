@@ -1,0 +1,118 @@
+/* 单词库页面样式 */
+.repo-container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.repo-title {
+  font-size: 48rpx;
+  color: #5F8FBF;
+  font-weight: bold;
+  text-align: center;
+  margin: 40rpx 0;
+}
+
+/* 单词列表容器 */
+.word-list {
+  width: 100%;
+}
+
+/* 滑动条目容器 */
+.swipe-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
+}
+
+/* 单词内容区域 */
+.item-content {
+  position: relative;
+  z-index: 10;
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  transition: transform 0.3s ease; /* 滑动动画 */
+}
+
+/* 单词文本样式 */
+.item-original {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.item-kana {
+  font-size: 30rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.item-meaning {
+  font-size: 30rpx;
+  color: #64b4f6d8;
+  display: block;
+}
+
+/* 新增：备注文本样式 */
+.item-note {
+  font-size: 28rpx;
+  color: #999; /* 灰色区分于主要内容 */
+  display: block;
+  margin-top: 8rpx;
+  padding-left: 4rpx; /* 轻微缩进，视觉上区分层级 */
+}
+
+/* 滑动按钮容器 */
+.operation-buttons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+}
+
+/* 编辑按钮 - 低饱和绿色 */
+.edit-btn {
+  width: 120rpx;
+  height: 100%;
+  background-color: #88B66A; /* 更低饱和的绿色（原#64b5f6淡化） */
+  color: #fff;
+  font-size: 28rpx;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 删除按钮 - 低饱和紫色 */
+.delete-btn {
+  width: 120rpx;
+  height: 100%;
+  background-color: #DDD75C; /* 更低饱和的紫色（原#f44336淡化） */
+  color: #fff;
+  font-size: 28rpx;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 空状态提示 */
+.empty-state {
+  padding: 200rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 30rpx;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 auto 30rpx;
+  opacity: 0.5;
+}

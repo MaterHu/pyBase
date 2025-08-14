@@ -1,0 +1,26 @@
+<view class="loading" wx:if="{{ isLoading }}">
+  <van-loading size="32" color="#64b5f6" />
+  <!-- 没有vant组件的话，用微信原生loading：
+  <loading>加载中...</loading> -->
+</view>
+
+<view class="review-container">
+  <!-- 顶部标题 -->
+  <text class="review-title">今日复习</text>
+  <text class="review-count">共 {{ reviewList.length }} 个单词待复习</text>
+
+  <!-- 单词卡片（无数据时提示） -->
+  <view class="card" wx:if="{{ reviewList.length > 0 }}">
+    <text class="original">{{ currentItem.originalText }}</text>
+    <text class="kana">{{ currentItem.kana }}</text>
+  </view>
+  <view class="empty" wx:else>
+    今天没有需要复习的单词啦～
+  </view>
+
+  <!-- 操作按钮（有单词时显示） -->
+  <view class="btn-group" wx:if="{{ reviewList.length > 0 }}">
+    <button class="btn know" bindtap="handleKnow">认识</button>
+    <button class="btn unknown" bindtap="handleUnknown">不认识</button>
+  </view>
+</view>

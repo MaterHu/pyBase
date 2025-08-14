@@ -1,0 +1,42 @@
+/* 页面容器 */
+.import-container {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 200rpx;
+  align-items: center;
+}
+
+/* 标题样式 */
+.import-title {
+  font-size: 48rpx;
+  color: #5F8FBF;
+  margin-bottom: 40rpx;
+  font-weight: bold;
+}
+
+/* 输入框样式 */
+.import-input {
+  width: 100%; /* 让输入框占满父容器宽度 */
+  max-width: 500rpx; /* 限制最大宽度，避免太宽 */
+  height: 80rpx; /* 增加高度，让提示词显示完整 */
+  line-height: 80rpx; /* 文字垂直居中 */
+  margin-bottom: 30rpx; /* 输入框之间的间距 */
+  padding: 0 20rpx; /* 左右内边距，让内容不贴边 */
+  border: 1px solid #eee; /* 灰色边框，区分输入框 */
+  border-radius: 10rpx; /* 圆角，更美观 */
+  font-size: 28rpx; /* 加大字体，方便输入查看 */
+}
+
+/* 按钮样式 */
+.import-btn {
+  width: 100%;
+  max-width: 300rpx; /* 限制按钮宽度，更协调 */
+  height: 80rpx; /* 调整按钮高度，和输入框呼应 */
+  line-height: 80rpx; /* 文字垂直居中 */
+  background-color: #88B66A;
+  color: #fff;
+  font-size: 32rpx; /* 按钮文字大小 */
+  border-radius: 10rpx; /* 圆角 */
+  border: none; /* 去掉默认边框 */
+}

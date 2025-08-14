@@ -1,0 +1,24 @@
+{
+  "setting": {
+    "compileHotReLoad": true,
+    "useTerminalPort": 9973,
+    "lastOpenPagePath": "pages/index/index"
+  },
+  "deviceInfo": {
+    "current": "iPhone 12",
+    "list": [
+      "iPhone 12",
+      "iPhone SE",
+      "iPad Pro"
+    ]
+  },
+  "windowConfig": {
+    "tool": {
+      "x": 100,
+      "y": 100,
+      "width": 1200,
+      "height": 800
+    }
+  }
+}
+    

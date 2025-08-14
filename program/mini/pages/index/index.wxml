@@ -1,0 +1,9 @@
+<view class="container">
+  <text class="title">胡尔摩斯学日语</text>
+  <view class="btn-group">
+    <button class="btn" bindtap="goToImport">导入新内容</button>
+    <button class="btn" bindtap="goToRepository">查看单词库</button>
+    <button class="btn" bindtap="goToReview">开始复习</button>
+  </view>
+  <text class="footer">努力成为日语大佬 🔥</text>
+</view>

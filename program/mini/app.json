@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/import/import",
+    "pages/repository/repository",
+    "pages/repository-detail/repository-detail",
+    "pages/review/review"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "胡尔摩斯学日语",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "cloud": true,
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,66 @@
+/**app.wxss**/
+/* 全局颜色变量（方便统一修改） */
+:root {
+  --primary: #A7C6DA; /* 主色调：低饱和蓝色 */
+  --success: #BACDB0; /* 成功色：柔和绿色 */
+  --danger: #f44336;  /* 危险色：柔和红色 */
+  --text-dark: #333;  /* 深色文字 */
+  --text-gray: #666;  /* 灰色文字 */
+  --text-light: #999; /* 浅色文字 */
+  --bg-light: #f5f5f5; /* 浅色背景 */
+  --border-radius: 20rpx; /* 统一圆角 */
+}
+
+/* 全局页面样式 */
+page {
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* 通用标题样式 */
+.title-common {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--primary); /* 使用主色调 */
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+/* 通用按钮样式 */
+.btn-common {
+  width: 100%;
+  padding: 30rpx 0;
+  border-radius: var(--border-radius); /* 统一圆角 */
+  font-size: 32rpx;
+  color: white;
+  text-align: center;
+  line-height: 1.5; /* 文字垂直居中 */
+}
+
+/* 成功按钮（绿色） */
+.btn-success {
+  background-color: var(--success);
+}
+
+/* 危险按钮（红色） */
+.btn-danger {
+  background-color: var(--danger);
+}
+
+/* 通用卡片样式（单词卡片、输入框容器等） */
+.card-common {
+  background-color: var(--bg-light);
+  padding: 40rpx;
+  border-radius: var(--border-radius);
+  margin-bottom: 40rpx;
+}
+
+/* 通用输入框样式 */
+.input-common {
+  width: 100%;
+  padding: 30rpx;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+}

@@ -1,0 +1,58 @@
+<view class="repo-container">
+  <text class="repo-title">单词库</text>
+
+  <!-- 单词列表 -->
+  <view class="word-list" wx:for="{{ items }}" wx:key="_id">
+    <view 
+      class="swipe-item"
+      data-index="{{ index }}"
+      bindtouchstart="touchStart"
+      bindtouchmove="touchMove"
+      bindtouchend="touchEnd"
+    >
+      <!-- 单词内容（可滑动部分） -->
+      <view 
+        class="item-content"
+        style="transform: translateX({{ item.swipeOffset }}rpx);"
+      >
+        <text class="item-original">{{ item.originalText }}</text>
+        <text class="item-kana">{{ item.kana }}</text>
+        <text class="item-meaning">{{ item.meaning }}</text>
+        <!-- 新增：显示备注信息（仅当存在时显示） -->
+        <text class="item-note" wx:if="{{ item.note }}">{{ item.note }}</text>
+      </view>
+
+      <!-- 滑动显示的按钮 -->
+      <view class="operation-buttons">
+        <button 
+          class="edit-btn"
+          bindtap="editItem"
+          data-id="{{ item._id }}"
+        >
+          编辑
+        </button>
+        <button 
+          class="delete-btn"
+          bindtap="deleteItem"
+          data-id="{{ item._id }}"
+          data-index="{{ index }}"
+        >
+          删除
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{ items.length === 0 }}">
+    <image 
+      class="empty-icon" 
+      mode="widthFix"
+      alt="空状态图标"
+    ></image>
+    <text>单词库还是空的哦～</text>
+    <view bindtap="goToImport" style="color: #64b5f6; margin-top: 20rpx;">
+      去添加第一个单词 →
+    </view>
+  </view>
+</view>

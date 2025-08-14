@@ -1,0 +1,29 @@
+<view class="import-container">
+  <text class="import-title">添加日语单词</text>
+  <input 
+    class="import-input" 
+    placeholder="日语原文（必须填）" 
+    bindinput="handleOriginalInput"
+    value="{{ originalText }}"
+  />
+  <input 
+    class="import-input" 
+    placeholder="假名" 
+    bindinput="handleKanaInput"
+    value="{{ kana }}"
+  />
+  <input 
+    class="import-input" 
+    placeholder="中文释义" 
+    bindinput="handleMeaningInput"
+    value="{{ meaning }}"
+  />
+  <input 
+    class="import-input" 
+    placeholder="备注（选填）" 
+    bindinput="handleNoteInput"
+    value="{{ note }}"
+  />
+  <button class="import-btn" bindtap="saveItem">确定添加</button>
+</view>
+    
